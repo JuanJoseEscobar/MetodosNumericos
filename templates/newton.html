@@ -1,0 +1,71 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+<div class="row mt-5">
+    <div class="col"></div>
+    <div class="col-md-6" style="border-style: solid; border-width: 5px; border-color: #212529;">
+        <div class="row bg-dark fs-1" style="color: white;">
+            <h1>NEWTON RAPHSON ♥</h1>
+        </div>
+        <form method="post" action="/daysi/Newton/Result" id="forma" name="forma">
+            <div class="row mt-1 fs-5">
+                <div class="col-sm-3">Función &#402;(x)= </div>
+                <div class="col"><input type="text" class="form-control" name="funcion" value="{{funcion}}" required>
+                </div>
+            </div>
+            <div class="row mt-1 fs-5">
+                <div class="col-sm-5">Punto Inicial: x0=</div>
+                <div class="col"><input type="text" class="form-control" name="liA" value="{{liA}}" required></div>
+            </div>
+            <div class="row mt-1 fs-5">
+                <div class="col-sm-5">Error de tolerancia &#8455;&#932;= </div>
+                <div class="col"><input type="text" class="form-control" name="eT" value="{{eT}}" required></div>
+            </div>
+            <div class="row">
+                <div class="col mt-3 mb-3"><input type="submit" value="Calcular" class="btn btn-dark"></div>
+                <div class="col mt-3 mb-3"><input type="reset" value="Borrar ♥" class="btn btn-dark"></div>
+            </div>
+            <div class="row mt-1 fs-5">
+                <div class="col-sm-3">Raiz r= </div>
+                <div class="col"><input type="text" class="form-control" name="riazR" value="{{riazR}}"></div>
+            </div>
+            <div class="row mt-1 fs-5">
+                <div class="col-sm-3">Precisión &#8455;&#932;= </div>
+                <div class="col"><input type="text" class="form-control" name="preS" value="{{preS}}"></div>
+            </div>
+            <div class="row mt-1 mb-1 fs-5">
+                <div class="col-sm-5">Numero de iteraciones n= </div>
+                <div class="col"><input type="text" class="form-control" name="nItera" value="{{nItera}}"></div>
+            </div>
+            <div class="row mt-2 mb-2 fs-5">
+                <div class="col mt-1 mb-1"><button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        Mostrar Tabla
+                    </button></div>
+            </div>
+        </form>
+    </div>
+    <div class="col"></div>
+</div>
+<img src="{{ url_for('static', filename='IMG/Daysiicon.png') }}" alt="No carga" width="100"
+    style="border-radius: 100px; margin-top: 5vh;" />
+<div class="row fs-1" style="color: #212529;">
+    <h1>♥ Daysi Calculator ♥</h1>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #212529; color: white;">
+                <h5 class="modal-title" id="exampleModalLabel">Tabla de intervalos</h5>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal"
+                    style="color: white; font-size: 30px;" aria-label="Close">x</button>
+            </div>
+            <div class="modal-body">
+                <pre>{{tabla}}</pre>
+            </div>
+            <div class="modal-footer" style="background-color: #212529;">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

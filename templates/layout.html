@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARCHANT</title>
+    <!--cbosstrap-->
+    <!--<link rel="stylesheet" href="../static/style/layout.css"/>-->
+    <!--<link rel="icon" href="../static/IMG/MARCHANT.png">-->
+    <link rel="icon" href="{{ url_for('static', filename='IMG/MARCHANT.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/layout.css') }}">
+</head>
+<body>
+    <div id="header">
+        <ul class = "menu">
+            
+                <li class="menuItem2"><img src="{{ url_for('static', filename='IMG/MARCHANT_LARGO.png') }}" alt="No carga" width="178vw"/></li>
+                <li class="menuItem"><a href="/">Inicio</a></li>
+                <li class="menuItem"><a href="/bases">Bases</a></li>
+                <li class="menuItem"><a href="/binario">Binario ieee754</a></li>
+                <li class="menuItem"><a href="/daysi">daisy calculator</a></li>
+            
+        </ul>
+    </div>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+</body>
+</html>

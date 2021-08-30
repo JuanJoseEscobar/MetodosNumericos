@@ -1,0 +1,112 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://mauriciopoppe.github.io/function-plot/js/function-plot.js"></script>
+<style>
+    h2 {
+        text-align: center;
+        margin-top: 5vh;
+    }
+
+    .layer {
+        width: 60%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    section {
+        border: 4px solid grey;
+        border-radius: 15px;
+        box-shadow: 5px 5px 5px grey;
+        float: left;
+        height: 360px;
+        padding: 20px;
+        margin: 10px;
+    }
+
+    #plotSettings {
+        width: 9vw;
+        height: 50vh;
+    }
+
+    #plot {
+        width: 550px;
+        height: 50vh;
+    }
+
+    input {
+        width: 125px;
+        height: 25px;
+    }
+
+    .function-plot {
+        width: 500px;
+    }
+
+    .zoom-and-drag {
+        height: 400px;
+
+    }
+</style>
+<h2>GRAFICADORA ♥</h2>
+<div class="layer">
+    <section id="plotSettings">
+        <label for="xMin"> </label> X Minimo: <input type=number id="xMin" value=-5 step=0.5 oninput="plot();">
+        <p></p>
+        <label for="xMin"></label> X Maximo: <input type=number id="xMax" value=6.28 step=0.5 oninput="plot();">
+
+        <p></p>
+        <label for="yMin"></label> Y Minimo: <input type=number id="yMin" value=-6 step=0.5 oninput="plot();">
+        <p></p>
+        <label for="yMax"></label> Y Maximo: <input type=number id="yMax" value=6 step=0.5 oninput="plot();">
+        <p></p>
+        <label for="color"></label> Color: <input type=color id="color" onchange="plot();">
+        <p></p>
+        <label for="function">Funcion &#402;(x)=</label>
+        <input id="function" type="text" value="sin(x)" onchange="plot();">
+        <p></p>
+        <button onclick="plot();" type="button" class="btn btn-dark" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        Graficar
+        </button>
+
+    </section>
+
+    <section id="plot">
+        <div id="myFunction"></div>
+    </section>
+</div>
+
+
+
+
+<script>
+    var parameters = {
+        target: '#myFunction',
+        data: [{
+            fn: 'sin(x)',
+            color: 'red'
+        }],
+        grid: true,
+        yAxis: { domain: [-1, 1] },
+        xAxis: { domain: [0, 2 * Math.PI] }
+    };
+
+    function plot() {
+        var f = document.querySelector("#function").value;
+        var xMin = document.querySelector("#xMin").value;
+        var xMax = document.querySelector("#xMax").value;
+        var yMin = document.querySelector("#yMin").value;
+        var yMax = document.querySelector("#yMax").value;
+        var color = document.querySelector("#color").value;
+
+        parameters.data[0].fn = f;
+        parameters.xAxis.domain = [xMin, xMax];
+        parameters.yAxis.domain = [yMin, yMax];
+        parameters.data[0].color = color;
+
+        functionPlot(parameters);
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+    <div class="row mt-5">
+        <div class="col"></div>
+        <div class="col-md-6" style="border-style: solid; border-width: 5px; border-color: #212529;">
+            <div class="row bg-dark fs-1" style="color: white;">
+                <h1>Derivadas ♥</h1>
+            </div>
+            <form method="post" action="/daysi/Derivadas/Result" id="forma" name="forma">
+                <div class="row mt-2 fs-5">
+                    <div class="col-sm-3">Función: &#402;(x)=</div>
+                    <div class="col"><input type="text" class="form-control" name="funcion" value="{{funcion}}" required></div>
+                </div>
+                <div class="row mt-1 fs-5">
+                    <div class="col-sm-3">Número: x0:</div>
+                    <div class="col"><input type="text" class="form-control" name="x0" value="{{x0}}" required></div>
+                </div>
+                <div class="row">
+                    <div class="col mt-3 mb-3"><input type="submit" value="Calcular" class="btn btn-dark"></div>
+                    <div class="col mt-3 mb-3"><input type="reset" value="Borrar ♥" class="btn btn-dark"></div>
+                </div>
+                <div class="row mt-1 fs-5">
+                    <div class="col-sm-3">Función: &#402;'(x)=</div>
+                    <div class="col"><input type="text" class="form-control" name="riazR" value="{{dfuncion}}" ></div>
+                </div>
+                <div class="row mt-1 fs-5">
+                    <div class="col-sm-4">Primera derivada:</div>
+                    <div class="col"><input type="text" class="form-control" name="preS" value="{{vdf}}" ></div>
+                </div>
+                <div class="row mt-1 mb-2 fs-5">
+                    <div class="col-sm-4">Segunda derivada:</div>
+                    <div class="col"><input type="text" class="form-control" name="nItera" value="{{vdf2}}"></div>
+                </div>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+    <img src="{{ url_for('static', filename='IMG/Daysiicon.png') }}" alt="No carga" width="100" style="border-radius: 100px; margin-top: 5vh;"/>
+    <div class="row fs-1" style="color: #212529;">
+        <h1>♥ Daysi Calculator ♥</h1>
+    </div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="contenedor">
+        <h1 id="titulo">Binario IEEE754</h1>
+        <br>
+        <br>
+        <!--variables  bin32 decimal signo exponente mantiza bin64 -->
+        <form method="post" action="/binario/ieee754/dec" id="forma" name="forma">
+            <div class="elemento">
+                <label for="numDec">Número:</label>
+                <input type="text" name="numDec" placeholder="Escribe tu número" id="numDec" value="{{decimal}}" required>
+                <label for="tipoBase">Base:</label>
+                <input type="text" name="tipoBase" value="Decimal" readonly="true" disabled="true" id="tipoBase">
+            </div>
+            <div class="elemento2 bi2">
+                <input class="booton botoonfont" type="submit" value="Calcular Decimal">
+            </div>
+        </form>
+        <form method="post" action="/binario/ieee754/bin32" id="forma" name="forma">
+            <div class="elemento agrandar">
+                <div class="minielement right">
+                    <label for="numBin32">Decimal:</label>
+                    <input type="text" name="numBin32" placeholder="Escribe tu número" id="numBin32" value="{{bin32}}" >
+                    <label for="tipoBase">Base:</label>
+                    <input type="text" name="tipoBase" value="Binario 32 BITS" readonly="true" disabled="true" id="tipoBase">
+                </div>
+                <div class="minielement space right">
+                    <label for="signo">Signo:</label>
+                    <input type="text" name="signo" value="{{signo}}" placeholder="singo" id="signo">
+                    <label for="exponente">Exponente:</label>
+                    <input type="text" name="exponente"  value="{{exponente}}" placeholder="exponente" id="exponente">
+                    <label for="mantiza">Mantiza:</label>
+                    <input type="text" name="mantiza"  value="{{mantiza}}" placeholder="Mantiza" id="mantiza">
+                </div>
+            </div>
+            <div class="elemento2 bi2">
+                <input class="booton botoonfont" type="submit" value="Calcular 32bits">
+            </div>
+        </form>
+        <form method="post" action="/binario/ieee754/bin64" id="forma" name="forma">
+            <div class="elemento agrandar">
+                <div class="minielement right">
+                    <label for="numBin64">Decimal:</label>
+                    <input type="text" name="numBin64" placeholder="numero bin 64Bits" id="numBin64" value="{{bin64}}" >
+                    <label for="tipoBase">Base:</label>
+                    <input type="text" name="tipoBase" value="Binario 64 BITS" readonly="true" disabled="true" id="tipoBase">
+                </div>
+                <div class="minielement space right">
+                    <label for="signo2">Signo:</label>
+                    <input type="text" name="signo2" value="{{signo}}" placeholder="singo" id="signo2">
+                    <label for="exponente">Exponente:</label>
+                    <input type="text" name="exponente2"  value="{{exponente2}}" placeholder="exponente" id="exponente2">
+                    <label for="mantiza">Mantiza:</label>
+                    <input type="text" name="mantiza2"  value="{{mantiza2}}" placeholder="Mantiza" id="mantiza2">
+                </div>
+            </div>
+            <div class="elemento2 bi2">
+                <input class="booton botoonfont" type="submit" value="Calcular 64bits">
+            </div>
+        </form>
+    </div>
+{% endblock %}

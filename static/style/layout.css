@@ -1,0 +1,192 @@
+*{
+    background-color: #F1FAEE;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    font-family: sans-serif, Arial, Helvetica;
+}
+
+p{
+    font-size: 1.5vw;
+}
+
+h1{
+    margin-top: 5vh;
+    color: #E63946;
+    font-variant: small-caps;
+    font-size: 3.5vw;
+}
+
+label{
+    color: #E63946;
+    font-size: 1.7vw;
+    
+}
+
+input{
+    font-size: 1.4vw;
+}
+
+select{
+    font-size: 1.4vw;
+    background-color: rgba(69, 123, 157, 0.363);
+    color: rgb(0, 0, 0);
+
+}
+.conversions{
+    width: 15vw;
+    text-align: left;
+    font-size: 1.4vw;
+}
+
+.minielement{
+    text-align: center;
+    width: 50vw;
+    display: flex;
+    flex-flow: row;
+}
+
+.booton{
+    box-shadow: 2px 2px 1px 1px  #295672;
+    border-radius: 4px;
+    background-color: #457B9D;
+    color: #F1FAEE;
+    width: 10vw;
+    height: 45px;
+    
+}
+
+.botoonfont{
+    font-size: 1vw;
+}
+
+.booton:hover{
+    box-shadow: 2px 2px 1px 1px  #295672;
+    background-color: #A8DADC;
+    color: #295672;
+}
+.booton:active{
+    box-shadow: 0px 0px 1px 1px  #A8DADC;
+    background-color: #295672;
+    color: #F1FAEE;
+
+}
+
+option{
+    font-size: 1vw;
+    
+}
+
+#header{
+    width: 100vw;
+}
+
+
+.elemento{
+    width: 50vw;
+    border: 1px solid #457B9D;
+    
+    text-align: center;
+    margin: 2.5vw 0 0 25vw;
+    
+}
+
+.elemento2{
+    text-align: center;
+    margin: 5vw 0 0 0;
+    
+}
+
+.bi2{
+    margin: 2vw 0 0 0;
+}
+
+.container{
+    text-align: center;
+}
+
+#signo, #signo2{
+width: 5vw;
+}
+
+.agrandar{
+    width: 55vw;
+    margin: 2.5vw 0 0 22.5vw;
+}
+
+#exponente, #exponente2{
+    width: 10vw;
+}
+#mantiza, #mantiza{
+   width: 50vw;
+}
+#numBin64{
+   width: 21vw;
+   margin: 0 0 0 0;
+}
+#numBin32{
+   width: 21vw;
+   margin: 0 0 0 0;
+}
+
+.space{
+    margin: 20px 0 0 0;
+    background-color: rebeccapurple;
+}
+
+.right{
+    margin-left: 2vw;
+}
+
+ul{
+    list-style-type:  none;/*para no visualizar el punto de la lista*/
+    background-color: #457B9D;
+    overflow: hidden;/*para mostrar las barras de scroll o de cierta forma y muestra de forma independiente*/
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    width: 100vw;
+}
+
+li{
+    float: left;/*para que se muestren de manera horizontal*/
+}
+
+.menuItem{/*para lo que esta en la listas y son links*/
+    display:  block;/*para que se desplieguen como un bloque*/
+    background-color: #457B9D;
+    text-align: center;
+    /*padding: 15px 10vw;*/
+    height: 5vh;
+    width: 22vw;
+    /*border-right: 2px solid white;*/
+}
+a{
+    display:  block;/*para que se desplieguen como un bloque*/
+    background-color: #457B9D;
+    text-align: center;
+    /*padding: 15px 10vw;*/
+    height: 5vh;
+    width: 18vw;
+    /*border-right: 2px solid white;*/
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    font-size: 4vh;
+    font-variant: small-caps;
+    text-decoration: none;/*la decoracion del texto*/
+}
+
+.miniMenu1{
+    width: 25vw;
+    text-align: center;
+}
+
+.miniMenu2{
+    width: 75vw;
+    text-align: left;
+    background-color: rgb(255, 255, 255);
+}
+
+li a:hover{/*cuando se posa encima de los links */
+    background-color: #A8DADC;
+}

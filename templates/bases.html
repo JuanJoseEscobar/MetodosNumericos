@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="contenedor">
+    <h1>Calculadora de Bases</h1>
+    <br>
+    <br>
+
+    <form method="post" action="/bases/send" id="forma" name="forma">
+            <div class="elemento">
+                <label for="numero">Número:</label>
+                <input type="text" name="numero" placeholder="Escribe tu número" id="numero" required>
+                <label for="tipoBase">Base:</label>
+                <select id="tipoBase" name="tipoBase" required>Decimal
+                    <option value="dec" selected="true">Decimal</option>
+                    <option value="oct">Octal</option>
+                    <option value="bin">Binario</option>
+                    <option value="hex">Hexadecimal</option>
+                </select>
+            </div>
+            <div class="elemento">
+                <div class="minielement">
+                    <label for="decimal">Decimal:</label>
+                    <input type="text" name="decimal" placeholder="Base 10" value="{{decimal}}" id="decimal">
+                    <label for="octal">Octal:</label>
+                    <input type="text" name="octal" placeholder="Base 8" value="{{octal}}" id="octal">
+                </div>
+                <div class="minielement">
+                    <label for="binario">Binario:</label>
+                    <input type="text" name="binario" placeholder="Base 2" value="{{binario}}" id="binario">
+                    <label for="hexadecimal">Hexadecimal:</label>
+                    <input type="text" name="hecadecimal" placeholder="Base 16" value="{{hecadecimal}}" id="hecadecimal">
+                </div>
+            </div>
+            <div class="elemento2">
+                <input class="booton" type="submit" value="Calcular">
+            </div>
+    </form>
+</div>
+{% endblock %}
