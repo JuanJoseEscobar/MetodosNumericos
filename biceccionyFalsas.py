@@ -28,7 +28,7 @@ def biseccion(ecua,x_i,x_f, iteraciones=1000, error_r=0.001):
             else:
                 x_f=solucion
             print('El intervalo es: ',x_i,x_f)
-            texto += 'El intervalo '+str(contador)+' es: [ a= '+str(x_i)+', b= '+str(x_f)+' ].\n'
+            texto += 'El intervalo '+str(contador)+' es: [ a= {:.4f}'.format(x_i)+', b= {:.4f}'.format(x_f)+' ].\n'
         #Imprimir el resultado
         
         print ('la solucion aproximada es: {:.3f} '.format(solucion))
@@ -67,8 +67,7 @@ def falsap(ecua,x_i,x_f, iteraciones=1000, error_r=0.001):
         
         print ('la solucion aproximada es: {:.3f} '.format(solucion))
         print ('Encontrada en:  {:.0f}'.format(contador)+ 'iteraciones')
-        print ('Con un error relativo de: {:.2f}'.format(error_calculado)+'%')
-        x =['{:.7f} '.format(solucion),'{:.0f}'.format(contador)+ ' iteraciones','{:.7f}'.format(error_calculado)+'%',texto]
+        x =['{} '.format(solucion),'{}'.format(contador)+ ' iteraciones','{}'.format(error_calculado)+'%',texto]
         return x
     else:
         x =['No existe solucion en ese intervalo','ERROR','ERROR','No se realizo ningún calculo']
@@ -137,9 +136,9 @@ def metodo_secante(ecua, p_0, p_1, n=50, tol=10**-4):
     """
     e_abs = abs(p_1 - p_0)
     
-    print('ite {:<2}: p_{:<2}={:.7f}'.format(0,0,p_0))
-    print('ite {:<2}: p_{:<2}={:.7f}, e_abs={:.7f}'.format(1,1,p_1,e_abs))
-    texto += ('ite {:<2}: p_{:<2}={:.7f}, e_abs={:.7f} \n'.format(1,1,p_1,e_abs))
+    print('ite {:<2}: punto {:<2}={:.7f}'.format(0,0,p_0))
+    print('ite {:<2}: punto {:<2}={:.7f}, e_abs={:.7f}'.format(1,1,p_1,e_abs))
+    texto += ('iteración {:<2}: punto {:<2}= {:.7f}, e_abs = {:.7f} \n'.format(1,1,p_1,e_abs))
     
     i = 2
     while i <= n:
@@ -150,8 +149,8 @@ def metodo_secante(ecua, p_0, p_1, n=50, tol=10**-4):
         
         p_2 = p_0 - (funcion(p_0,ecua)*(p_1 - p_0))/(funcion(p_1,ecua) - funcion(p_0,ecua))  # fórmula método secante
         e_abs = abs(p_2 - p_1)
-        print('ite {:<2}: p_{:<2}={:.7f}, e_abs={:.7f}'.format(i,i,p_2,e_abs))
-        texto += ('ite {:<2}: p_{}={:.7f}, e_abs={:.7f} \n'.format(i,i,p_2,e_abs))
+        print('iteración {:<2}: punto {:<2} = {:.7f}, e_abs = {:.7f}'.format(i,i,p_2,e_abs))
+        texto += ('iteración {:<2}: punto {} = {:.7f}, e_abs = {:.7f} \n'.format(i,i,p_2,e_abs))
         
         if e_abs < tol:  # criterio de parada
             print('Solución encontrada x= {:.7f}, iteraciones: {}'. format(p_2,i))

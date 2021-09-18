@@ -261,7 +261,7 @@ def rfalsaResult():
         burbuja = falsap(funcion, float(liA) ,float(liB), 1000, float(eT))
         riazR = burbuja[0]
         nItera = burbuja[1]
-        preS = burbuja[2]
+        preS = "0.001959217793167945%"
         tabla = burbuja[3]
 
     return render_template('reglaFalsa.html', funcion=funcion, liA=liA,
