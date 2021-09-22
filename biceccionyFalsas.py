@@ -255,6 +255,8 @@ def intSimpson13(ecua, pA, pB, n):
     suma = 0.0
     auxpA = pA
     auxpB = pB
+    if n % 2 != 0:
+        n=n+1
     Dx = (pB - pA) / float(n)
     for i in range(n):
         pB = pA + Dx
@@ -272,6 +274,15 @@ def intSimpson38(ecua, pA, pB, n):
     suma = 0.0
     auxpA = pA
     auxpB = pB
+    if n % 3 != 0:
+        n=n+1
+        if n % 3 != 0:
+            n=n+1
+            if n % 3 != 0:
+                n=n+1
+                if n % 3 != 0:
+                    n=n+1
+    print(n)
     Dx = (pB - pA) / float(n)
     for i in range(n):
         pB = pA + Dx
