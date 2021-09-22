@@ -218,6 +218,22 @@ def derivadas():
 def polyno():
     return render_template('polynomio.html')
 
+@app.route('/daysi/IRectan')
+def IRectan():
+    return render_template('intRectangulos.html')
+
+@app.route('/daysi/ITrapecios')
+def ITrapecios():
+    return render_template('intTrapecios.html')
+
+@app.route('/daysi/ISimpson13')
+def ISimpson13():
+    return render_template('simpson13.html')
+
+@app.route('/daysi/ISimpson38')
+def ISimpson38():
+    return render_template('simpson38.html')
+
 @app.route('/daysi/Bisec/Result', methods = ['POST'])
 def bisecResult():
     if request.method == 'POST':
@@ -356,6 +372,96 @@ def polyResult():
 
 
     return render_template('polynomio.html',funcion = funcion, dfuncion=dfuncion )
+
+@app.route('/daysi/IRectan/Result', methods = ['POST'])
+def IRectanResult():
+    if request.method == 'POST':
+        funcion = request.form['funcion']
+        liA = request.form['liA']
+        liB = request.form['liB']
+        eT = request.form['eT']
+        metapost = True
+
+    PuntoIZ = "ERROR"
+    PuntoDE = "ERROR"
+    PuntoME = "ERROR"
+
+    if metapost:
+        burbuja = integracionRectangular(funcion, float(liA), float(liB), int(eT))
+        PuntoIZ = burbuja[0]
+        PuntoDE = burbuja[1]
+        PuntoME = burbuja[2]
+
+
+
+    return render_template('intRectangulos.html', funcion=funcion, liA=liA,
+    liB=liB, eT=eT, PuntoIZ=PuntoIZ, PuntoME=PuntoME, PuntoDE=PuntoDE)
+
+@app.route('/daysi/ITrapecios/Result', methods = ['POST'])
+def ITrapeciosResult():
+    if request.method == 'POST':
+        funcion = request.form['funcion']
+        liA = request.form['liA']
+        liB = request.form['liB']
+        eT = request.form['eT']
+        metapost = True
+
+    valorInt = "ERROR"
+    error = "ERROR"
+
+    if metapost:
+        burbuja = integracionTrapecios(funcion, float(liA), float(liB), int(eT))
+        valorInt = burbuja[0]
+        error = burbuja[1]
+
+
+
+    return render_template('intTrapecios.html', funcion=funcion, liA=liA,
+    liB=liB, eT=eT, valorInt=valorInt, error=error)
+
+@app.route('/daysi/ISimpson13/Result', methods = ['POST'])
+def ISimpson13Result():
+    if request.method == 'POST':
+        funcion = request.form['funcion']
+        liA = request.form['liA']
+        liB = request.form['liB']
+        eT = request.form['eT']
+        metapost = True
+
+    valorInt = "ERROR"
+    error = "ERROR"
+
+    if metapost:
+        burbuja = intSimpson13(funcion, float(liA), float(liB), int(eT))
+        valorInt = burbuja[0]
+        error = burbuja[1]
+
+
+
+    return render_template('simpson13.html', funcion=funcion, liA=liA,
+    liB=liB, eT=eT, valorInt=valorInt, error=error)
+
+@app.route('/daysi/ISimpson38/Result', methods = ['POST'])
+def ISimpson38Result():
+    if request.method == 'POST':
+        funcion = request.form['funcion']
+        liA = request.form['liA']
+        liB = request.form['liB']
+        eT = request.form['eT']
+        metapost = True
+
+    valorInt = "ERROR"
+    error = "ERROR"
+
+    if metapost:
+        burbuja = intSimpson38(funcion, float(liA), float(liB), int(eT))
+        valorInt = burbuja[0]
+        error = burbuja[1]
+
+
+
+    return render_template('simpson38.html', funcion=funcion, liA=liA,
+    liB=liB, eT=eT, valorInt=valorInt, error=error)
 #Fin de Daysi calculator********
 
 if __name__ == '__main__':

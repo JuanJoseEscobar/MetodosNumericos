@@ -179,3 +179,108 @@ def calculoPolynomio(P):
     texTreunr += '].'
     return texTreunr
 
+
+def integracionRIZ(ecua, pA, pB, n):
+    x = ''
+    suma = 0.0
+    Dx = (pB-pA)/float(n)
+    for i in range(n):
+        altura = funcion(pA,ecua)
+        Area = Dx * altura
+        suma = suma + Area
+        pA = pA +Dx
+
+    x = '{}'.format(suma)
+
+    return x
+
+def integracionRDE(ecua, pA, pB, n):
+    x = ''
+    suma = 0.0
+    Dx = (pB-pA)/float(n)
+    for i in range(n):
+        altura = funcion(pA + Dx,ecua)
+        Area = Dx * altura
+        suma = suma + Area
+        pA = pA +Dx
+
+    x = '{}'.format(suma)
+
+    return x
+
+def integracionRMID(ecua, pA, pB, n):
+    x = ''
+    suma = 0.0
+    Dx = (pB-pA)/float(n)
+    for i in range(n):
+        altura = funcion(pA+(Dx)/2,ecua)
+        Area = Dx * altura
+        suma = suma + Area
+        pA = pA +Dx
+
+    x = '{}'.format(suma)
+
+    return x
+
+
+
+
+def integracionRectangular(ecua, pA, pB, n):
+    iz = integracionRIZ(ecua, pA, pB, n)
+    de = integracionRDE(ecua, pA, pB, n)
+    mid = integracionRMID(ecua, pA, pB, n)
+
+    x = [iz,de, mid]
+    return x
+
+
+def integracionTrapecios(ecua, pA, pB, n):
+    xy=['','']
+    suma = 0.0
+    Dx = (pB - pA)/float(n)
+    auxpA = pA
+    for i in range(n):
+        Area = ((funcion(pA,ecua) + funcion(pA+Dx,ecua)) * Dx / 2)
+        suma = suma + Area
+        pA = pA + Dx
+
+    x = symbols("x")
+    value = integrate((funcion(x,ecua)), (x,auxpA,pB)).evalf()
+    xy=['{}'.format(suma),'{}%'.format(abs(value - suma)/value * 100)]
+
+    return xy
+
+def intSimpson13(ecua, pA, pB, n):
+    xy=['Error','Error']
+    suma = 0.0
+    auxpA = pA
+    auxpB = pB
+    Dx = (pB - pA) / float(n)
+    for i in range(n):
+        pB = pA + Dx
+        m = (pA + pB) / 2
+        Area = (pB - pA) / 6 * (funcion(pA, ecua) + 4 * funcion(m, ecua) + funcion(pB, ecua))
+        suma = suma + Area
+        pA = pB
+    x = symbols("x")
+    value = integrate((funcion(x,ecua)), (x,auxpA,auxpB)).evalf()
+    xy=['{}'.format(suma),'{}%'.format(abs(value - suma)/value * 100)]
+    return xy
+
+def intSimpson38(ecua, pA, pB, n):
+    xy=['Error','Error']
+    suma = 0.0
+    auxpA = pA
+    auxpB = pB
+    Dx = (pB - pA) / float(n)
+    for i in range(n):
+        pB = pA + Dx
+        m1 = (2 * pA + pB) / 3
+        m2 = (pA + 2 * pB) / 3
+        Area = (pB - pA) / 8 * (funcion(pA, ecua) + 3 * funcion(m1, ecua) + 3 * funcion(m2, ecua) + funcion(pB, ecua))
+        suma = suma + Area
+        pA = pB
+    x = symbols("x")
+    value = integrate((funcion(x,ecua)), (x,auxpA,auxpB)).evalf()
+    xy=['{}'.format(suma),'{}%'.format(abs(value - suma)/value * 100)]
+    return xy

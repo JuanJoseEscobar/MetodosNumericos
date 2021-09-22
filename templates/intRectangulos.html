@@ -1,0 +1,53 @@
+{% extends "layout2.html" %}
+
+{% block content %}
+<div class="row mt-5">
+    <div class="col"></div>
+    <div class="col-md-6" style="border-style: solid; border-width: 5px; border-color: #212529;">
+        <div class="row bg-dark fs-1" style="color: white;">
+            <h1>Integracion Por Rectangulos ♥</h1>
+        </div>
+        <form method="post" action="/daysi/IRectan/Result" id="forma" name="forma">
+            <div class="row mt-1 fs-5">
+                <div class="col-sm-3">Función &#402;(x)= </div>
+                <div class="col"><input type="text" class="form-control" name="funcion" value="{{funcion}}" required>
+                </div>
+            </div>
+            <div class="row mt-1 fs-5">
+                <div class="col-sm-5">Extremo izquierdo: a </div>
+                <div class="col"><input type="text" class="form-control" name="liA" value="{{liA}}" required></div>
+            </div>
+            <div class="row mt-1 fs-5">
+                <div class="col-sm-5">Extremo derecho: b </div>
+                <div class="col"><input type="text" class="form-control" name="liB" value="{{liB}}" required></div>
+            </div>
+            <div class="row mt-1 fs-5">
+                <div class="col-sm-5">Número de particiones: n </div>
+                <div class="col"><input type="text" class="form-control" name="eT" value="{{eT}}" required></div>
+            </div>
+            <div class="row">
+                <div class="col mt-3 mb-3"><input type="submit" value="Calcular" class="btn btn-dark"></div>
+                <div class="col mt-3 mb-3"><input type="reset" value="Borrar ♥" class="btn btn-dark"></div>
+            </div>
+            <div class="row mt-1 fs-5">
+                <div class="col-sm-5">Punto extremo izquierdo:</div>
+                <div class="col"><input type="text" class="form-control" name="riazR" value="{{PuntoIZ}}"></div>
+            </div>
+            <div class="row mt-1 fs-5">
+                <div class="col-sm-5">Punto extremo derecho: </div>
+                <div class="col"><input type="text" class="form-control" name="preS" value="{{PuntoDE}}"></div>
+            </div>
+            <div class="row mt-1 mb-1 fs-5">
+                <div class="col-sm-3">Punto medio:</div>
+                <div class="col"><input type="text" class="form-control" name="nItera" value="{{PuntoME}}"></div>
+            </div>
+        </form>
+    </div>
+    <div class="col"></div>
+</div>
+<img src="{{ url_for('static', filename='IMG/Daysiicon.png') }}" alt="No carga" width="100"
+    style="border-radius: 100px; margin-top: 5vh;" />
+<div class="row fs-1" style="color: #212529;">
+    <h1>♥ Daysi Calculator ♥</h1>
+</div>
+{% endblock %}
