@@ -234,6 +234,10 @@ def ISimpson13():
 def ISimpson38():
     return render_template('simpson38.html')
 
+@app.route('/daysi/MonteCarlo')
+def MonteCarlo():
+    return render_template('monteCarlo.html')
+
 @app.route('/daysi/Bisec/Result', methods = ['POST'])
 def bisecResult():
     if request.method == 'POST':
@@ -461,6 +465,28 @@ def ISimpson38Result():
 
 
     return render_template('simpson38.html', funcion=funcion, liA=liA,
+    liB=liB, eT=eT, valorInt=valorInt, error=error)
+
+@app.route('/daysi/MonteCarlo/Result', methods = ['POST'])
+def MonteCarloResult():
+    if request.method == 'POST':
+        funcion = request.form['funcion']
+        liA = request.form['liA']
+        liB = request.form['liB']
+        eT = request.form['eT']
+        metapost = True
+
+    valorInt = "ERROR"
+    error = "ERROR"
+
+    if metapost:
+        burbuja = intMontecarlo(funcion, float(liA), float(liB), int(eT))
+        valorInt = burbuja[0]
+        error = burbuja[1]
+
+
+
+    return render_template('monteCarlo.html', funcion=funcion, liA=liA,
     liB=liB, eT=eT, valorInt=valorInt, error=error)
 #Fin de Daysi calculator********
 

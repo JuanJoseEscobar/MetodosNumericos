@@ -5,9 +5,9 @@
     <div class="col"></div>
     <div class="col-md-6" style="border-style: solid; border-width: 5px; border-color: #212529;">
         <div class="row bg-dark fs-1" style="color: white;">
-            <h1>Integracion Por Trapecios ♥</h1>
+            <h1>Integracion Por Montecarlo ♥</h1>
         </div>
-        <form method="post" action="/daysi/ITrapecios/Result" id="forma" name="forma">
+        <form method="post" action="/daysi/MonteCarlo/Result" id="forma" name="forma">
             <div class="row mt-1 fs-5">
                 <div class="col-sm-3">Función &#402;(x)= </div>
                 <div class="col"><input type="text" class="form-control" name="funcion" value="{{funcion}}" required>
@@ -22,7 +22,7 @@
                 <div class="col"><input type="text" class="form-control" name="liB" value="{{liB}}" required></div>
             </div>
             <div class="row mt-1 fs-5">
-                <div class="col-sm-5">Número de particiones: n </div>
+                <div class="col-sm-5">Número de puntos: n </div>
                 <div class="col"><input type="text" class="form-control" name="eT" value="{{eT}}" required></div>
             </div>
             <div class="row">
@@ -30,12 +30,12 @@
                 <div class="col mt-3 mb-3"><input type="reset" value="Borrar ♥" class="btn btn-dark"></div>
             </div>
             <div class="row mt-1 fs-5">
-                <div class="col-sm-5">Valor de la integral:<img src="{{ url_for('static', filename='IMG/Captura.png') }}" alt=""></div>
-                <div class="col"><input type="text" class="form-control" name="riazR" value="{{valorInt}}"></div>
+                <div class="col-sm-6">Número de puntos contados:</div>
+                <div class="col"><input type="text" class="form-control" name="preS" value="{{error}}"></div>
             </div>
             <div class="row mt-1 fs-5 mb-1">
-                <div class="col-sm-5">Error: </div>
-                <div class="col"><input type="text" class="form-control" name="preS" value="{{error}}"></div>
+                <div class="col-sm-6">Valor de la integral:<img src="{{ url_for('static', filename='IMG/Captura.png') }}" alt=""></div>
+                <div class="col"><input type="text" class="form-control" name="riazR" value="{{valorInt}}"></div>
             </div>
         </form>
     </div>

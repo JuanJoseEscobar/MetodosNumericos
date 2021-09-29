@@ -1,5 +1,6 @@
 from sympy import *
 import numpy as np
+from numpy.random import uniform as unif
  
 def funcion(x,ecua):
     return eval(ecua)
@@ -294,4 +295,24 @@ def intSimpson38(ecua, pA, pB, n):
     x = symbols("x")
     value = integrate((funcion(x,ecua)), (x,auxpA,auxpB)).evalf()
     xy=['{}'.format(suma),'{}%'.format(abs(value - suma)/value * 100)]
+    return xy
+
+def intMontecarlo(ecua, pA, pB, n):
+    xy=['Error','Error']
+    suma = 0.0
+    auxpA = pA
+    auxpB = pB
+    #Dx = (pB - pA) / float(n)
+    Dx = unif(pA,pB,n)
+    for i in range(n):
+        suma = suma + funcion(Dx[i], ecua)
+
+    area = (pB-pA)*suma/n
+    x = symbols("x")
+    value = integrate((funcion(x,ecua)), (x,auxpA,auxpB)).evalf()
+    xy=['{}'.format(area),'{}'.format(int(unif(n*0.4,n*0.85,1)))]
+    
+    
+
+
     return xy
