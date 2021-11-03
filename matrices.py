@@ -33,9 +33,9 @@ def operacionM(am,bm,f):
         return texto
     except ValueError:
         print("Oops!  That was no valid number.  Try again...")
-        texto = ['ERROR. Revise las matrices o sus operaciones, puede que esten mal digitadas o los tamaños no concuerden. porfavor consulte a su profesor.','{}'.format(5),'{}'.format(5), "d"]
+        texto = ['ERROR. Revise las matrices o sus operaciones, puede que esten mal digitadas o los tamaños no concuerden. Porfavor consulte a su profesor.','{}'.format(5),'{}'.format(5), "d"]
         return texto
     except LinAlgError:
         print("Oops!  That was no valid number.  Try again...")
-        texto = ['Su matriz es singular ó esta errada','{}'.format(5),'{}'.format(5), "d"]
+        texto = ['Su matriz es singular.','{}'.format(5),'{}'.format(5), "d"]
         return texto
