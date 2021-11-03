@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
+from sympy.functions.elementary.piecewise import Undefined
+from sympy.solvers.diophantine.diophantine import length
 from bases import *
 from biceccionyFalsas import *
+from matrices import *
 
 
 app = Flask(__name__)
@@ -237,6 +240,10 @@ def ISimpson38():
 @app.route('/daysi/MonteCarlo')
 def MonteCarlo():
     return render_template('monteCarlo.html')
+
+@app.route('/daysi/MatrizSuma')
+def MatrizSuma():
+    return render_template('matrizSuma.html')
 
 @app.route('/daysi/Bisec/Result', methods = ['POST'])
 def bisecResult():
@@ -488,6 +495,69 @@ def MonteCarloResult():
 
     return render_template('monteCarlo.html', funcion=funcion, liA=liA,
     liB=liB, eT=eT, valorInt=valorInt, error=error)
+
+@app.route('/daysi/MatrizSuma/Result', methods = ['POST'])
+def MatrizSumaResult():
+    if request.method == 'POST':
+        funcion = request.form['funcion']
+        aMA = request.form['AreaMatrizA']
+        aMB = request.form['AreaMatrizB']
+        metapost = True
+
+    MA = "ERROR"
+    MB = "ERROR"
+    MAT = "Tamaño A):   "
+    MBT = "Tamaño B):   "
+    MR = "ERROR"
+
+    if metapost:
+        aux = aMA.split("\r\n")
+        print(aux)
+        supAux = ""
+        cont = 0
+        top = len(aux)
+        """ MAT="("+len(aux)+"x" """
+        MAT+='({}x'.format(len(aux))
+        for a in aux:
+            if cont < top-1:
+                supAux += a+";"
+            else:
+                """ MAT= len(a)+")" """
+                mia = a.split(",")
+                MAT+= '{})'.format(len(mia))
+                supAux += a
+            cont = cont+1
+        print(supAux)
+        MA = supAux
+        if aMA == "":
+            MAT = "Tamaño A):   (0x0)"
+
+        aux = aMB.split("\r\n")
+        print(aux)
+        supAux = ""
+        cont = 0
+        top = len(aux)
+        """ MBT="("+len(aux)+"x" """
+        MBT+='({}x'.format(len(aux))
+        for a in aux:
+            if cont < top-1:
+                supAux += a+";"
+            else:
+                """ MBT= len(a)+")" """
+                mia = a.split(",")
+                MBT+= '{})'.format(len(mia))
+                supAux += a
+            cont = cont+1
+        print(supAux)
+        MB = supAux
+        if aMB == "":
+            MBT = "Tamaño A):   (0x0)"
+
+        R = operacionM(MA,MB,funcion.upper())
+        MR = R[0]
+        
+
+    return render_template('matrizSuma.html', aMA = aMA, aMB = aMB,MA = MAT, MB = MBT, MR=MR, funcion=funcion)
 #Fin de Daysi calculator********
 
 if __name__ == '__main__':

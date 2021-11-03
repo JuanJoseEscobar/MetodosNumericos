@@ -80,6 +80,7 @@ def newtonRas(ecua,p_0,n=1000, tol=0.001):
     texto = ""
     x=symbols('x')
     df = diff(funcion(x,ecua), x)
+    print(df)
     """
     Método Newton Raphson
     :param f: Funcion a la que se le intenta encontrar una solucion para la ecuacion f(x)=0, previamente definida
@@ -96,11 +97,12 @@ def newtonRas(ecua,p_0,n=1000, tol=0.001):
         
         if funcion(p_0,str(df)) == 0:  # división por cero
             print('Solución no encontrara - df(x)=0')
-            return None
+            texTreturn = ['Solución no encontrada','iteraciones agotadas','S.N','Solución no encontrada']
+            return texTreturn
         
         p_1 = p_0 - (funcion(p_0,ecua))/(funcion(p_0,str(df)))  # fórmula método
         e_abs = abs(p_1-p_0)
-        print('ite {:<2}: p_{:<2}={:.7f}, error absoluto={:.7f}'.format(i,i,p_1,e_abs))
+        
         texto += ('ite {:<2}: p_{:<2}={:.7f}, error absoluto={:.7f} \n'.format(i,i,p_1,e_abs))
         
         if e_abs < tol: #criterio de parada

@@ -6,9 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daysi calculator</title>
-    <!--cbosstrap-->
-    <!--<link rel="stylesheet" href="../static/style/layout.css"/>-->
-    <!--<link rel="icon" href="../static/IMG/MARCHANT.png">-->
     <link rel="icon" href="{{ url_for('static', filename='IMG/Daysiicon.png') }}" style="border-radius: 100px;">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
@@ -51,6 +48,19 @@
                             <li><a class="dropdown-item" href="/daysi/ISimpson13" id="rfalsaitem">SIMPSON 1/3</a></li>
                             <li><a class="dropdown-item" href="/daysi/ISimpson38" id="rfalsaitem">SIMPSON 3/8</a></li>
                             <li><a class="dropdown-item" href="/daysi/MonteCarlo" id="rfalsaitem">MONTECARLO</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="metoditem" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            MATRICES
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/daysi/MatrizSuma" id="IRectan">BASICAS</a></li>
+                            <li><a class="dropdown-item" href="/daysi/ITrapecios" id="ITrapecios">NN</a></li>
+                            <li><a class="dropdown-item" href="/daysi/ISimpson13" id="rfalsaitem">NN</a></li>
+                            <li><a class="dropdown-item" href="/daysi/ISimpson38" id="rfalsaitem">NN</a></li>
+                            <li><a class="dropdown-item" href="/daysi/MonteCarlo" id="rfalsaitem">NN</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
