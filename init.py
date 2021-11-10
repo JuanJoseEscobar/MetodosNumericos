@@ -1,9 +1,12 @@
+from re import split
 from flask import Flask, render_template, request, redirect, url_for
 from sympy.functions.elementary.piecewise import Undefined
 from sympy.solvers.diophantine.diophantine import length
 from bases import *
 from biceccionyFalsas import *
 from matrices import *
+from minimos import *
+from minimosLi import *
 
 
 app = Flask(__name__)
@@ -244,6 +247,14 @@ def MonteCarlo():
 @app.route('/daysi/MatrizSuma')
 def MatrizSuma():
     return render_template('matrizSuma.html')
+
+@app.route('/daysi/Minimos')
+def Minimos():
+    return render_template('AjusteDeCurvas.html')
+
+@app.route('/daysi/MinimosLI')
+def MinimosLI():
+    return render_template('AjusteDeLineas.html')
 
 @app.route('/daysi/Bisec/Result', methods = ['POST'])
 def bisecResult():
@@ -558,6 +569,46 @@ def MatrizSumaResult():
         
 
     return render_template('matrizSuma.html', aMA = aMA, aMB = aMB,MA = MAT, MB = MBT, MR=MR, funcion=funcion)
+
+@app.route('/daysi/Minimos/Result', methods = ['POST'])
+def MinimosResult():
+    if request.method == 'POST':
+        x = request.form['x']
+        y = request.form['y']
+        metapost = True
+
+    MR = "ERROR"
+
+    if metapost:
+        vx = x.split(',')
+        vy = y.split(',')
+        if len(vx) == len(vy):
+            MR = minimosMin(vx,vy)
+        else:
+            MR = 'Error, Los tamaños no concuerdan\nx = {}\ny = {}'.format(len(vx),len(vy))
+        
+
+    return render_template('AjusteDeCurvas.html', x=x, y=y, MR=MR)
+
+@app.route('/daysi/MinimosLI/Result', methods = ['POST'])
+def MinimosLIResult():
+    if request.method == 'POST':
+        x = request.form['x']
+        y = request.form['y']
+        metapost = True
+
+    MR = "ERROR"
+
+    if metapost:
+        vx = x.split(',')
+        vy = y.split(',')
+        if len(vx) == len(vy):
+            MR = minimosMinLineassss(vx,vy)
+        else:
+            MR = 'Error, Los tamaños no concuerdan\nx = {}\ny = {}'.format(len(vx),len(vy))
+        
+
+    return render_template('AjusteDeLineas.html', x=x, y=y, MR=MR)
 #Fin de Daysi calculator********
 
 if __name__ == '__main__':

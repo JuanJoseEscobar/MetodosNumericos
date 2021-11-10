@@ -3,66 +3,35 @@
 {% block content %}
 <div class="row mt-5">
     <div class="col"></div>
-    <div class="col-md-12" style="border-style: solid; border-width: 5px; border-color: #212529;">
+    <div class="col-md-8" style="border-style: solid; border-width: 5px; border-color: #212529;">
         <div class="row bg-dark fs-1" style="color: white;">
-            <h1>Matrices ♥</h1>
+            <h1>AJUSTE DE CURVAS ♥</h1>
         </div>
-        <form method="post" action="/daysi/MatrizSuma/Result" id="forma" name="forma">
-            <div class="row mt-2 fs-6"><!-- filaaaaaaaaaa uno -->
-                <div class="col">
-                    <div class="row ms-2" style="font-weight: bold;">A)</div>
-                </div>
-                <div class="col">
-                    <div class="row ms-2" style="font-weight: bold;">B)</div>
-                </div>
-            </div>
-            <div class="row mt-2 fs-6"><!-- filaaaaaaaaaa uno -->
-                <div class="col">
-                    <div class="row ms-1 me-1">
-                        <textarea  name="AreaMatrizA" id="AreaMatrizA" cols="6" rows="6" style="font-size: 28px;"
-                        placeholder="1,5
-5,2
-6,3">{{aMA}}</textarea>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="row ms-1 me-1">
-                        <textarea  name="AreaMatrizB" id="AreaMatrizB" cols="6" rows="6" style="font-size: 28px;"
-                        placeholder="1,5,6
-5,2,3">{{aMB}}</textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-2 fs-5"><!-- filaaaaaaaaaa dos -->
+        <form method="post" action="/daysi/Minimos/Result" id="forma" name="forma">
+            <div class="row mt-2 fs-5"><!-- filaaaaaaaaaa tres -->
                 <div class="col">
                     <div class="row">
-                        <div class="col ms-1" style="font-weight: bold; text-align: left;">{{MA}}</div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col ms-1" style="font-weight: bold; text-align: left;">{{MB}}</div>
+                        <div class="col-sm-1">X = </div>
+                        <div class="col"><input type="text" style="text-align: center; font-weight: 600;" class="form-control" name="x" value="{{x}}" placeholder="1,2,3,4,5,8,10,15,20,25,26,27,30" required></div>
                     </div>
                 </div>
             </div>
             <div class="row mt-2 fs-5"><!-- filaaaaaaaaaa tres -->
                 <div class="col">
                     <div class="row">
-                        <div class="col"><input type="text" style="text-align: center; font-weight: 600;" class="form-control" name="funcion" value="{{funcion}}" placeholder="A*B" required></div>
+                        <div class="col-sm-1">Y = </div>
+                        <div class="col"><input type="text" style="text-align: center; font-weight: 600;" class="form-control" name="y" value="{{y}}" placeholder="25,62,84,66,35,20,41,22,14,58,96,20,45" required></div>
                     </div>
                 </div>
             </div>
             <div class="row mt-2 mb-2"><!-- boooootoooooones -->
                 <div class="col"><input type="submit" value="Calcular" class="btn btn-dark me-1"></div>
-                <div class="col"><button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-                    Ayuda ?
-                </button></div>
+                <div class="col"><input type="reset" value="Borrar ♥" class="btn btn-dark"></div>
             </div>
             <div class="row mt-2 mb-4 fs-6"><!-- filaaaaaaaaaa uno -->
                 <div class="col">
                     <div class="row ms-1 me-2">
-                        <textarea  name="AreaMatrizR" id="AreaMatriz" style="text-align: center; font-size: 28px;" placeholder = "{{MR}}" cols="6" rows="6" >{{MR}}</textarea>
+                        <textarea  name="AreaMatrizR" id="AreaMatriz" style="text-align: center; font-size: 28px;" placeholder = "{{MR}}" cols="6" rows="3" >{{MR}}</textarea>
                     </div>
                 </div>
             </div>

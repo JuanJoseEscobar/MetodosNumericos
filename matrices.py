@@ -1,3 +1,4 @@
+from types import TracebackType
 import numpy as np
 from numpy.linalg.linalg import LinAlgError, solve
 from scipy import linalg
@@ -13,6 +14,19 @@ def INV(A):
 
 def T(A):
     return np.transpose(A)
+
+def SUMA(A,B):
+    if len(A) != len(B):
+        print("el tamaño de a es:"+len(A))
+        return "Error. Las matrices deben ser iguales"
+    else:
+        return A+B
+
+def RESTA(A,B):
+    if len(A) != len(B):
+        return "Error. Las matrices deben ser iguales"
+    else:
+        return A-B
 
 def funcion(A,B,ecua):
     return eval(ecua)
@@ -38,4 +52,12 @@ def operacionM(am,bm,f):
     except LinAlgError:
         print("Oops!  That was no valid number.  Try again...")
         texto = ['Su matriz es singular.','{}'.format(5),'{}'.format(5), "d"]
+        return texto
+    except NameError:
+        print("Oops!  That was no valid number.  Try again...")
+        texto = ['Error. No se reconoce lo digitado.','{}'.format(5),'{}'.format(5), "d"]
+        return texto
+    except TypeError:
+        print("Oops!  That was no valid number.  Try again...")
+        texto = ['Error. No se reconoce lo digitado.','{}'.format(5),'{}'.format(5), "d"]
         return texto
