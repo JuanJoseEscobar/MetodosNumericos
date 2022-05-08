@@ -582,6 +582,19 @@ def MinimosResult():
     if metapost:
         vx = x.split(',')
         vy = y.split(',')
+
+        cont = 0
+        for v in vx:
+            vx[cont] = float(vx[cont])
+            cont = cont+ 1
+
+        cont = 0
+        for v in vy:
+            vy[cont] = float(vy[cont])
+            cont = cont+ 1
+
+        print(vx)
+        print(vy)
         if len(vx) == len(vy):
             MR = minimosMin(vx,vy)
         else:
@@ -602,6 +615,17 @@ def MinimosLIResult():
     if metapost:
         vx = x.split(',')
         vy = y.split(',')
+
+        cont = 0
+        for v in vx:
+            vx[cont] = float(vx[cont])
+            cont = cont+ 1
+
+        cont = 0
+        for v in vy:
+            vy[cont] = float(vy[cont])
+            cont = cont+ 1
+
         if len(vx) == len(vy):
             MR = minimosMinLineassss(vx,vy)
         else:
